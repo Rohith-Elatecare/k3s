@@ -1,1 +1,3 @@
 curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/upgrade.sh | bash
+
+curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/secret_upgrade.sh | bash
