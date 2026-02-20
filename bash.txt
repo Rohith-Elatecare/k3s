@@ -1,3 +1,10 @@
-curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/upgrade.sh | bash
+#Services
+1. curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/upgrade.sh | bash
 
-curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/secret_upgrade.sh | NAMESPACE=actyro SERVICES=auth-service bash
+#MongoDB
+curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/install-mongodb-onprem.sh | bash
+
+#Secret
+1. curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/secret_upgrade.sh | NAMESPACE=actyro SERVICES=all bash
+2. curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/secret_upgrade.sh | NAMESPACE=actyro SERVICES=auth-service bash
+3. curl -fsSL https://github.com/Rohith-Elatecare/k3s/releases/latest/download/secret_upgrade.sh | NAMESPACE=actyro SERVICES=auth-service,projects-service bash
