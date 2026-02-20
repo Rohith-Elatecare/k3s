@@ -1,8 +1,26 @@
 #!/bin/bash
 set -e
 
+
+
+#####################################
+# Helpers
+#####################################
+log() {
+  echo -e "\e[32m[INFO]\e[0m $1"
+}
+
+warn() {
+  echo -e "\e[33m[WARN]\e[0m $1"
+}
+
+error() {
+  echo -e "\e[31m[ERROR]\e[0m $1"
+  exit 1
+}
+
 echo "================================================="
-echo " Actyro On-Prem MongoDB Installer (k3s VM)"
+echo " Actyro On-Prem MongoDB Installer (k3s VM) "
 echo "================================================="
 echo ""
 
@@ -165,46 +183,30 @@ echo "mongodb://${APP_USER}:${APP_PASS}@mongodb.mongodb.svc.cluster.local:27017/
 echo ""
 echo "TESTCLIENT:"
 echo "mongodb://${APP_USER}:${APP_PASS}@mongodb.mongodb.svc.cluster.local:27017/${DB2}?authSource=${AUTH_DB}"
-echo ""
-echo "================================================="
-echo " MongoDB is running as a StatefulSet on k3s VM"
-echo "================================================="
-echo "================================================="
-
-
-log() {
-  echo "[INFO] $@"
-}
 
 echo ""
-log "============================================="
-log "MongoDB is running as a StatefulSet on k3s VM"
-log "============================================="
+echo "============================================="
+echo "MongoDB is running as a StatefulSet on k3s VM"
+echo "============================================="
 
-log "StatefulSet status:"
-kubectl get sts -n ${NAMESPACE}
+log "StatefulSet status: kubectl get sts -n ${NAMESPACE}"
 
-log "MongoDB pod status:"
-kubectl get pods -n ${NAMESPACE}
+log "MongoDB pod status: kubectl get pods -n ${NAMESPACE}"
 
-log "Persistent Volume Claims:"
-kubectl get pvc -n ${NAMESPACE}
+log "Persistent Volume Claims: kubectl get pvc -n ${NAMESPACE}"
 
-log "MongoDB service:"
-kubectl get svc -n ${NAMESPACE}
+log "MongoDB service: kubectl get svc -n ${NAMESPACE}"
 
-log "MongoDB DNS:"
-log "mongodb.${NAMESPACE}.svc.cluster.local"
+log "MongoDB DNS: mongodb.${NAMESPACE}.svc.cluster.local"
 
-log "Node status:"
-kubectl get nodes
-
-log "Disk usage on node (important for stability):"
-log "df -h /"
-
-log "============================================="
-log "Installation completed successfully"
-log "============================================="
+log "Node status: kubectl get nodes"
 
 
-log "---------------------------------------------"
+log "Disk usage on node (important for stability): df -h /"
+
+echo "============================================="
+echo "Installation completed successfully"
+echo "============================================="
+
+
+echo "---------------------------------------------"
