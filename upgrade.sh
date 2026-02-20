@@ -116,9 +116,9 @@ kubectl get pods -n "$NAMESPACE"
 
 log "✅ Actyro upgrade completed successfully"
 
-log "Pod list: kubectl get po -n <NAMESPACE>"
+log "Pod list: kubectl get po -n "$NAMESPACE""
 
-log "pod status: kubectl describe po <po_name> -n <NAMESPACE>"
+log "pod status: kubectl describe po <po_name> -n "$NAMESPACE""
 
 log "auth-service endpoint: https://auth.company.internal"
 
@@ -126,4 +126,4 @@ log "projects-service endpoint: https://projects.company.internal"
 
 log "run-tests-service endpoint: https://tests.company.internal"
 
-log "portal endpoint: https://portal.auth.company.internal"
+log "portal endpoint: https://portal.company.internal"
